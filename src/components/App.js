@@ -1,18 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
+import "../styles/App.css";
+import Child from "./Child";
+const App = () => {
+    const [age, setAge] = useState(19);
+    function incrementAge() {
+        setAge(age + 1);
+    }
 
-function Child(props) {
-  const { age, incrementAge } = props;
-
-  function handleClick() {
-    incrementAge();
-  }
-
-  return (
-    <div id="child">
-      <p id="text">Today I am {age} Years of Age</p>
-      <button id="button" onClick={handleClick}>Increment Age</button>
+    return (
+    <div>
+      <Child age={age} incrementAge={incrementAge} />
     </div>
   );
-}
+};
 
-export default Child;
+export default App;
